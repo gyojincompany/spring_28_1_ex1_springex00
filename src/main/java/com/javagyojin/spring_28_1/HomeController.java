@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javagyojin.spring_28_1.dao.ContentDao;
+import com.javagyojin.spring_28_1.dao.IDao;
 import com.javagyojin.spring_28_1.dto.ContentDto;
 
 /**
@@ -32,6 +34,9 @@ public class HomeController {
 	public void setDao(ContentDao dao) {
 		this.dao = dao;
 	}
+	
+	@Autowired
+	private SqlSession sqlSession;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -53,9 +58,11 @@ public class HomeController {
 	@RequestMapping("/list")
 	public String list(Model model) {
 		
-		ArrayList<ContentDto> dtos = dao.listDao();
+		//ArrayList<ContentDto> dtos = dao.listDao();
 		
-		model.addAttribute("list", dtos);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		model.addAttribute("list", dao.listDao());
 		
 		return "list";
 	}
