@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.javagyojin.spring_28_1.dto.ContentDto;
 
-public class ContentDao implements IDao {
+public class ContentDao {
 	
 	JdbcTemplate template;
 	
@@ -27,50 +27,50 @@ public class ContentDao implements IDao {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public ArrayList<ContentDto> listDao() {
-		// TODO Auto-generated method stub
-//		String query = "SELECT * FROM board ORDER BY mid DESC";
+//	@Override
+//	public ArrayList<ContentDto> listDao() {
+//		// TODO Auto-generated method stub
+////		String query = "SELECT * FROM board ORDER BY mid DESC";
+////		
+////		ArrayList<ContentDto> dtos = (ArrayList<ContentDto>)template.query(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
 //		
-//		ArrayList<ContentDto> dtos = (ArrayList<ContentDto>)template.query(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
-		
-		return null;
-	}
+//		return null;
+//	}
 
-	@Override
-	public void writeDao(final String mwriter, final String mcontent) {
-		// TODO Auto-generated method stub
-		
-		this.template.update(new PreparedStatementCreator() {
-			
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				// TODO Auto-generated method stub
-				
-				String query = "INSERT INTO board (mid, mwriter, mcontent) VALUES(board_seq.nextval, ?, ?)";
-				
-				PreparedStatement ps = con.prepareStatement(query);
-				ps.setString(1, mwriter);
-				ps.setString(2, mcontent);
-				
-				return ps;
-			}
-		});
-		
-	}
+	
+//	public void writeDao(final String mwriter, final String mcontent) {
+//		// TODO Auto-generated method stub
+//		
+//		this.template.update(new PreparedStatementCreator() {
+//			
+//			@Override
+//			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+//				// TODO Auto-generated method stub
+//				
+//				String query = "INSERT INTO board (mid, mwriter, mcontent) VALUES(board_seq.nextval, ?, ?)";
+//				
+//				PreparedStatement ps = con.prepareStatement(query);
+//				ps.setString(1, mwriter);
+//				ps.setString(2, mcontent);
+//				
+//				return ps;
+//			}
+//		});
+//		
+//	}
 
-	@Override
-	public ContentDto viewDao(String strId) {
-		// TODO Auto-generated method stub
-		
-		String query = "SELECT * FROM board WHERE mid = " + strId;
-		
-		ContentDto dto = template.queryForObject(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
-		
-		return dto;
-	}
+	
+//	public ContentDto viewDao(String strId) {
+//		// TODO Auto-generated method stub
+//		
+//		String query = "SELECT * FROM board WHERE mid = " + strId;
+//		
+//		ContentDto dto = template.queryForObject(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
+//		
+//		return dto;
+//	}
 
-	@Override
+	
 	public void deleteDao(final String mid) {
 		// TODO Auto-generated method stub
 		
