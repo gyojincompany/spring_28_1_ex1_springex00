@@ -15,17 +15,17 @@ import com.javagyojin.spring_28_1.dto.ContentDto;
 
 public class ContentDao {
 	
-	JdbcTemplate template;
-	
-	@Autowired
-	public void setTemplate(JdbcTemplate template) {
-		this.template = template;
-	}
-
-	public ContentDao() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+//	JdbcTemplate template;
+//	
+//	@Autowired
+//	public void setTemplate(JdbcTemplate template) {
+//		this.template = template;
+//	}
+//
+//	public ContentDao() {
+//		super();
+//		// TODO Auto-generated constructor stub
+//	}
 
 //	@Override
 //	public ArrayList<ContentDto> listDao() {
@@ -71,21 +71,21 @@ public class ContentDao {
 //	}
 
 	
-	public void deleteDao(final String mid) {
-		// TODO Auto-generated method stub
-		
-		String query = "DELETE FROM board WHERE mid = ?";
-		
-		this.template.update(query, new PreparedStatementSetter() {
-			
-			@Override
-			public void setValues(PreparedStatement ps) throws SQLException {
-				// TODO Auto-generated method stub
-				ps.setInt(1, Integer.parseInt(mid));
-			}
-		});
-		
-	}
+//	public void deleteDao(final String mid) {
+//		// TODO Auto-generated method stub
+//		
+//		String query = "DELETE FROM board WHERE mid = ?";
+//		
+//		this.template.update(query, new PreparedStatementSetter() {
+//			
+//			@Override
+//			public void setValues(PreparedStatement ps) throws SQLException {
+//				// TODO Auto-generated method stub
+//				ps.setInt(1, Integer.parseInt(mid));
+//			}
+//		});
+//		
+//	}
 	
 	
 	

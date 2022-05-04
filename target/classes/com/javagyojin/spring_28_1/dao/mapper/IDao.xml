@@ -17,6 +17,6 @@
 	</select>
 	
 	<delete id="deleteDao">
-	
+		DELETE FROM board WHERE mid = #{param1}
 	</delete>
 </mapper>

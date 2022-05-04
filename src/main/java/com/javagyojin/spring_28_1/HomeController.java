@@ -28,12 +28,12 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	ContentDao dao;
-	
-	@Autowired
-	public void setDao(ContentDao dao) {
-		this.dao = dao;
-	}
+//	ContentDao dao;
+//	
+//	@Autowired
+//	public void setDao(ContentDao dao) {
+//		this.dao = dao;
+//	}
 	
 	@Autowired
 	private SqlSession sqlSession;
